@@ -1,9 +1,0 @@
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.csproj.AssemblyReference.cache
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.AssemblyInfoInputs.cache
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.AssemblyInfo.cs
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.csproj.CoreCompileInputs.cache
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.RazorAssemblyInfo.cache
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.RazorAssemblyInfo.cs
-C:\Users\mateu\source\repos\OrchardCoreSandbox\src\Modules\ApiClient\obj\Debug\net8.0\ApiClientPrzelewy24.sourcelink.json
