@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- New assembly / root namespace -->
+    <AssemblyName>ApiClientPrzelewy24</AssemblyName>
+    <RootNamespace>ApiClientPrzelewy24</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.Module.Targets" Version="2.2.0" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="2.2.0" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="2.2.0" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="2.2.0" />
+    <PackageReference Include="Refit" Version="9.0.2" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="9.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Przelewy24\" />
+  </ItemGroup>
+
+</Project>
