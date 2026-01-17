@@ -2,17 +2,20 @@
 
 namespace ApiClientPrzelewy24.Objects
 {
-    public sealed record RegisterResponseDto(
-        [property: JsonPropertyName("data")] RegisterResponseData? Data,
-        [property: JsonPropertyName("responseCode")] int ResponseCode
-    )
+    /// <summary>
+    /// Odpowiedź z Przelewy24 po rejestracji transakcji
+    /// </summary>
+    public record RegisterResponseDto
     {
-        // Convenience accessor so existing callers that expect a top-level Token keep working.
-        [JsonIgnore]
-        public string? Token => Data?.Token;
+        public RegisterData? Data { get; init; }
     }
 
-    public sealed record RegisterResponseData(
-        [property: JsonPropertyName("token")] string? Token
-    );
+    public record RegisterData
+    {
+        /// <summary>
+        /// Token transakcji do utworzenia URL płatności
+        /// Format: https://sandbox.przelewy24.pl/trnRequest/{token}
+        /// </summary>
+        public string? Token { get; init; }
+    }
 }
