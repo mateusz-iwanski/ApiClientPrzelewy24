@@ -36,29 +36,20 @@ namespace ApiClientPrzelewy24.Clients
             return Task.FromResult(sign);
         }
 
-        // Legacy/local method kept for reference (not used anymore).
-        private static byte[] BuildOrderedJson(string sessionId, int merchantId, long amount, string currency, string crc)
+        /// <summary>
+        /// Creates the Przelewy24 "sign" value for transaction verification.
+        /// </summary>
+        public Task<string> CreateVerifySignatureAsync(VerifyRequestDto request, string crcKey)
         {
-            using var ms = new MemoryStream();
-            var options = new JsonWriterOptions
-            {
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-                Indented = false
-            };
+            // Delegate to the shared helper to ensure a single canonical implementation is used.
+            var sign = Przelewy24SignatureHelper.ComputeVerifySign(
+                request.SessionId,
+                request.OrderId,
+                request.Amount,
+                request.Currency,
+                crcKey);
 
-            using (var writer = new Utf8JsonWriter(ms, options))
-            {
-                writer.WriteStartObject();
-                writer.WriteString("sessionId", sessionId ?? string.Empty);
-                writer.WriteNumber("merchantId", merchantId);
-                writer.WriteNumber("amount", amount);
-                writer.WriteString("currency", currency ?? string.Empty);
-                writer.WriteString("crc", crc ?? string.Empty);
-                writer.WriteEndObject();
-                writer.Flush();
-            }
-
-            return ms.ToArray();
+            return Task.FromResult(sign);
         }
     }
 }
