@@ -15,7 +15,7 @@ namespace ApiClientPrzelewy24.Objects
         public int Id { get; init; }
         public string? Name { get; init; }
         public string? ImgUrl { get; init; }
-        public string? Status { get; init; }
+        public bool Status { get; init; }
         public bool Mobile { get; init; }
     }
 }
