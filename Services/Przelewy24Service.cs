@@ -175,7 +175,7 @@ namespace ApiClientPrzelewy24.Services
             var sign = await _signatureProvider.CreateRegisterSignatureAsync(request, crc).ConfigureAwait(false);
             var signedRequest = request with { Sign = sign };
 
-            var client = _httpClientFactory.CreateClient("Przelewy24");
+                var client = _httpClientFactory.CreateClient("Przelewy24");
 
             var reportKey = _configuration["Przelewy24:ReportKey"] ?? SandboxReportKey;
             var posForAuth = request.PosId != 0
