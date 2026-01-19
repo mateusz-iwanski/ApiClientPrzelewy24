@@ -1,6 +1,4 @@
-﻿using ApiClientPrzelewy24.Clients;
-using ApiClientPrzelewy24.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -11,8 +9,10 @@ using Refit;
 using System.Net.Http.Headers;
 using System.Threading;
 using Microsoft.Extensions.Logging;
+using OrchardCore.PaymentGateway.Providers.Przelewy24.Objects;
+using OrchardCore.PaymentGateway.Providers.Przelewy24.Clients;
 
-namespace ApiClientPrzelewy24.Services
+namespace OrchardCore.PaymentGateway.Providers.Przelewy24.Services
 {
     /// <summary>
     /// Service for Przelewy24 API integration - handles complete online payment flow.
