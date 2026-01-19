@@ -17,6 +17,10 @@ app.publish/
 [Bb]in/
 [Oo]bj/
 
+# Custom build logs
+build.log
+build_error.txt
+
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
 
