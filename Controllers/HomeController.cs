@@ -2,11 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
-using ApiClientPrzelewy24.Clients;
-using ApiClientPrzelewy24.Services;
-using ApiClientPrzelewy24.Objects;
+using OrchardCore.PaymentGateway.Providers.Przelewy24.Objects;
+using OrchardCore.PaymentGateway.Providers.Przelewy24.Services;
 
-namespace ApiClientPrzelewy24.Controllers
+namespace OrchardCore.PaymentGateway.Controllers
 {
     [Route("ApiClientPrzelewy24")]
     public class HomeController : Controller
@@ -176,6 +175,33 @@ namespace ApiClientPrzelewy24.Controllers
             {
                 return Problem(detail: ex.Message, statusCode: 500);
             }
+        }
+
+        /// <summary>
+        /// Realizuje przelew na podstawie danych transakcji.
+        /// POST /ApiClientPrzelewy24/Checkout
+        /// Body: RegisterRequestDto (JSON)
+        /// </summary>
+        [HttpPost("Checkout")]
+        public async Task<IActionResult> Checkout([FromBody] RegisterRequestDto request)
+        {
+            if (request is null) return BadRequest("Request body is required.");
+
+            // Ensure required fields are present
+            if (request.Amount <= 0) return BadRequest("Amount must be greater than 0.");
+            if (string.IsNullOrWhiteSpace(request.UrlReturn)) return BadRequest("urlReturn is required.");
+            if (string.IsNullOrWhiteSpace(request.UrlStatus)) return BadRequest("urlStatus is required.");
+
+            var response = await _przelewy24Service.CreateTransactionAsync(request).ConfigureAwait(false);
+
+            // Use the Token from the Data property of RegisterResponseDto
+            var token = response.Data?.Token;
+            if (string.IsNullOrWhiteSpace(token))
+                return Problem(detail: "No token returned from Przelewy24.", statusCode: 500);
+
+            // Redirect customer to Przelewy24 payment page
+            var redirectUrl = $"https://sandbox.przelewy24.pl/trnRequest/{token}";
+            return Redirect(redirectUrl);
         }
 
         #endregion
