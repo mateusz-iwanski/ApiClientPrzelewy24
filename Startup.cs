@@ -5,10 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.Modules;
 using Refit;
-using ApiClientPrzelewy24.Services;
-using ApiClientPrzelewy24.Clients;
+using OrchardCore.PaymentGateway.Providers.Przelewy24.Clients;
+using OrchardCore.PaymentGateway.Providers.Przelewy24.Services;
 
-namespace ApiClientPrzelewy24
+namespace OrchardCore.PaymentGateway
 {
     public class Startup : StartupBase
     {
