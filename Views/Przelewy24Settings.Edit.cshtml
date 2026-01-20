@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer T
+@model OrchardCore.PaymentGateway.Providers.Przelewy24.ViewModels.Przelewy24SettingsViewModel
+
+<div class="mb-3">
+    <label asp-for="ClientId" class="form-label">@T["Client / Merchant ID"]</label>
+    <input asp-for="ClientId" class="form-control" autocomplete="off" />
+    <span class="form-text text-muted">@T["Optional string identifier; MerchantId (int) is used for API calls."]</span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="MerchantId" class="form-label">@T["Merchant ID"]</label>
+    <input asp-for="MerchantId" class="form-control" />
+</div>
+
+<div class="mb-3">
+    <label asp-for="PosId" class="form-label">@T["POS ID"]</label>
+    <input asp-for="PosId" class="form-control" />
+</div>
+
+<div class="mb-3">
+    <label asp-for="CrcKey" class="form-label">@T["CRC key"]</label>
+    <input asp-for="CrcKey" class="form-control" autocomplete="off" />
+</div>
+
+<div class="mb-3">
+    <label asp-for="ReportKey" class="form-label">@T["Report key"]</label>
+    <input asp-for="ReportKey" class="form-control" autocomplete="off" />
+</div>
+
+<div class="mb-3">
+    <label asp-for="SecretId" class="form-label">@T["Secret ID"]</label>
+    <input asp-for="SecretId" class="form-control" autocomplete="off" />
+    <span class="form-text text-muted">@T["Optional override; Report key is used when empty."]</span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="BaseUrl" class="form-label">@T["API base URL"]</label>
+    <input asp-for="BaseUrl" class="form-control" placeholder="https://sandbox.przelewy24.pl/api/v1/" />
+</div>
+
+<div class="form-check mb-3">
+    <input asp-for="UseSandboxFallbacks" class="form-check-input" />
+    <label asp-for="UseSandboxFallbacks" class="form-check-label">@T["Use sandbox defaults when empty"]</label>
+</div>
